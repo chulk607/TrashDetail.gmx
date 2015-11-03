@@ -1,7 +1,7 @@
 ///ScrJunkCapDestroyed
 
 
-switch(classArray[type,4])
+switch(classArray[type,6])
 {
     //add to planet pollution
     case "pollutant":

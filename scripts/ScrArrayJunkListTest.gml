@@ -2,21 +2,19 @@
 
 
 //small
-global.arrayJunkSmlList[1]   = 1;
-global.arrayJunkSmlList[0]   = 0;
+global.arrayJunkSmlList[0]   = 0;//deactivated
 
 
 //medium
-global.arrayJunkMedList[0]   = 0;
+global.arrayJunkMedList[0]   = 0;//deactivated
 
 
 //large
-global.arrayJunkLrgList[0]   = 0;
+global.arrayJunkLrgList[0]   = 0;//deactivated
 
 
 //special
-global.arrayJunkSpcList[1]   = 1;
-global.arrayJunkSpcList[0]   = 0;
+global.arrayJunkSpcList[0]   = 0;//deactivated
 
 
 //huge

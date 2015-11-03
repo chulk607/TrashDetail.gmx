@@ -78,20 +78,24 @@ y = ObjEnvPlanet.y - sprite_height;
             <string>///firing
 
 
-//check mouse is in valid firing space
+//if in valid firing space and junk not clicked, fire missile
 if (mouse_y &lt; y - 1)
 {
-    //grapple
-    if (position_meeting(mouse_x,mouse_y,ObjJunk)) &amp;&amp; (ObjJunk.class == 6)
+    var _instance;
+    _instance = instance_position(mouse_x, mouse_y, ObjJunk);
+
+    //check if capsule junk object clicked on, if so, fire grapple
+    if (_instance != noone) &amp;&amp; (_instance.class == 6)
     {
         //limit number of grapple projectiles to 1
-        if (instance_number(ObjProjPlyrGrapple) = 0)
+        if (instance_number(ObjProjPlyrGrapple) == 0)
         {
             var _grappleTarget;
-            _grappleTarget = instance_position(mouse_x, mouse_y, ObjJunk);
-    
+            _grappleTarget = _instance;
+
             newProjPlyrGrapple = instance_create(x, y, ObjProjPlyrGrapple);
-            
+
+            //fire grapple            
             with newProjPlyrGrapple
             {
                 grappleTarget = _grappleTarget;
@@ -99,8 +103,7 @@ if (mouse_y &lt; y - 1)
             }
         }
     }
-
-    //missile
+    //else if no junk clicked on, or junk of other type, fire missile
     else
     {
         instance_create(x, y, ObjProjPlyrMissile);

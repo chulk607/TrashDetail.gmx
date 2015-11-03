@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>ObjJunkParent</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="3" enumb="0">
@@ -27,6 +27,12 @@
             <kind>1</kind>
             <string>///spin
 image_angle += spinRate;
+
+//spin if not a grappled capsule
+if !((class == 6) &amp;&amp; (isGrappled))
+{
+    image_angle += spinRate;
+}
 </string>
           </argument>
         </arguments>
@@ -47,14 +53,11 @@ image_angle += spinRate;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///out of bounds check
-if (x &lt; 0)
+            <string>///grappled capsule movement
+if (class == 6) &amp;&amp; (isGrappled)
 {
-    x = 0;
-}
-else if (x &gt; room_width)
-{
-    x = room_width;
+    x = grappleProjectile.x;
+    y = grappleProjectile.y;
 }
 </string>
           </argument>
@@ -80,13 +83,31 @@ else if (x &gt; room_width)
 if (y &gt;= ObjEnvPlanet.y)
 {
     instance_destroy();
-    global.planetMass -= classArray[type,2];
 
     //reset planet reduction
     with ObjEnvPlanet
     {
         isReducing = false;
         alarm[0] = csEnvPlanetReductionTimeout;
+    }
+
+    //if capsule class and not grappled, execute on-destruction script
+    if (class == 6) &amp;&amp; !(isGrappled)
+    {
+        ScrJunkCapDestroyed();
+    }
+
+    //else if not capsule class add to planet mass
+    else if (class != 6)
+    {
+        if (global.planetMass &gt; 0)
+        {
+            global.planetMass -= classArray[type,2];
+        }
+        else
+        {
+            global.planetMass = 0;
+        }
     }
 }
 </string>
@@ -155,11 +176,14 @@ if (hp &lt;= 0)
     //destroy
     instance_destroy();
 
-    //increment score &amp; create popup
-    ScrScoreCalc(classArray[type,2],classArray[type,3],csScoreCalcMultiplierJunk);
+    //if not capsule class, increment score &amp; create popup
+    if (class != 6)
+    {
+        ScrScoreCalc(classArray[type,2],classArray[type,3],csScoreCalcMultiplierJunk);
+    }
 
-    //fragment if medium or large
-    if (class = 1) or (class = 2)
+    //if medium or large, fragment
+    if (class == 1) or (class == 2)
     {
         var _class, _childJunkIndex, _childJunkSelection, _childJunkQuantity, _speed, _spriteWidth, _spriteHeight, _targetX;
 
@@ -201,7 +225,7 @@ if (hp &lt;= 0)
                     case 1: classArray = global.arrayJunkMed;   break;
                 }
 
-                //prevent child targetX/variance being placed out of bounds
+                //prevent child targetX / variance being placed out of bounds
                 if (_targetX &lt; (csJunkTargetVariance))
                 {
                     targetX = random(csJunkTargetVariance);
@@ -220,11 +244,47 @@ if (hp &lt;= 0)
             }
         }
     }
-    //check for &amp; execute on-destruction script
-    else if (class = 3)  &amp;&amp; (global.arrayJunkSpc[type,6] != -1)
+
+    //else if special class with on-destruction script, execute it
+    else if (class == 3)  &amp;&amp; (global.arrayJunkSpc[type,6] != -1)
     {
         script_execute (global.arrayJunkSpc[type,6]);
     }
+
+    //else if capsule class, execute on-destruction script
+    else if (class == 6)
+    {
+        ScrJunkCapDestroyed();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///out of bounds check
+if (x &lt; 0)
+{
+    x = 0;
+}
+else if (x &gt; room_width)
+{
+    x = room_width;
 }
 </string>
           </argument>

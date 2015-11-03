@@ -2,10 +2,10 @@
 
 
 //increment score
-ScrScoreCalc(classArray[type,2],classArray[type,3],csScoreCalcMultiplierJunkCapsule);
+ScrScoreCalc(classArray[type,2],classArray[type,3],csScoreCalcMultiplierJunkCap);
 
 //payload handling
-switch(classArray[type,4])
+switch(classArray[type,6])
 {
     case "water":
         //subtract from planet temperature if result would be greater or equal to min value

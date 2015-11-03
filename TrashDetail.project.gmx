@@ -94,19 +94,18 @@
         <script>scripts\ScrArrayExpl.gml</script>
       </scripts>
       <scripts name="Junk">
-        <scripts name="Standard">
-          <script>scripts\ScrArrayJunkLrg.gml</script>
-          <script>scripts\ScrArrayJunkSpc.gml</script>
-          <script>scripts\ScrArrayJunkMed.gml</script>
-          <script>scripts\ScrArrayJunkSml.gml</script>
-          <script>scripts\ScrArrayJunkCap.gml</script>
-          <script>scripts\ScrArrayJunkCmn.gml</script>
-          <script>scripts\ScrArrayJunkPod.gml</script>
-          <script>scripts\ScrArrayJunkHge.gml</script>
-        </scripts>
         <scripts name="List">
           <script>scripts\ScrArrayJunkListTest.gml</script>
+          <script>scripts\ScrArrayJunkListSpecialNone.gml</script>
         </scripts>
+        <script>scripts\ScrArrayJunkCap.gml</script>
+        <script>scripts\ScrArrayJunkCmn.gml</script>
+        <script>scripts\ScrArrayJunkHge.gml</script>
+        <script>scripts\ScrArrayJunkLrg.gml</script>
+        <script>scripts\ScrArrayJunkMed.gml</script>
+        <script>scripts\ScrArrayJunkPod.gml</script>
+        <script>scripts\ScrArrayJunkSml.gml</script>
+        <script>scripts\ScrArrayJunkSpc.gml</script>
       </scripts>
       <scripts name="Comms">
         <script>scripts\ScrArrayCommsMsgNormal.gml</script>
@@ -197,18 +196,10 @@
     </objects>
     <objects name="Junk">
       <object>objects\ObjJunk</object>
-      <object>objects\ObjJunkParent</object>
-      <objects name="Old - Delete Me">
-        <object>objects\ObjJunkPodOld</object>
-        <object>objects\ObjJunkHgeOld</object>
-        <object>objects\ObjJunkCapOld</object>
-      </objects>
     </objects>
     <objects name="Projectile">
-      <objects name="Player">
-        <object>objects\ObjProjPlyrMissile</object>
-        <object>objects\ObjProjPlyrGrapple</object>
-      </objects>
+      <object>objects\ObjProjPlyrGrapple</object>
+      <object>objects\ObjProjPlyrMissile</object>
     </objects>
     <objects name="Comms">
       <object>objects\ObjComms</object>

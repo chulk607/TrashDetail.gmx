@@ -13,7 +13,7 @@ move_towards_point(targetX, room_height, speed);
 //spin direction
 var _spinDirection, _spinRate;
 _spinDirection = choose("cw","ccw");
-_spinRate = random_range(global.arrayJunkCmn[class,6],global.arrayJunkCmn[class,7]);
+_spinRate = random_range(global.arrayJunkCmn[class,7],global.arrayJunkCmn[class,8]);
 
 switch (_spinDirection)
 {

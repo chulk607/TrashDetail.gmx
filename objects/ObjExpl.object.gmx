@@ -65,7 +65,7 @@ if (canDetonate == true)
     _yy = y;
     
     //collision check
-    with (ObjJunkParent)
+    with (ObjJunk)
     {
         if collision_circle(_xx, _yy, _rad, id, true, false)
         {
