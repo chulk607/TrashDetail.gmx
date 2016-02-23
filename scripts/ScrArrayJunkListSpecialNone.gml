@@ -1,29 +1,23 @@
-///ScrArrayJunkSpecialNone
+///ScrArrayJunkListSpecialNone
 
 
 //small
-global.arrayJunkSmlList      = 0;//deactivated
-
+ScrArrayJunkSmlListClear();
 
 //medium
-global.arrayJunkMedList      = 0;//deactivated
-
+ScrArrayJunkMedListClear();
 
 //large
-global.arrayJunkLrgList      = 0;//deactivated
-
+ScrArrayJunkLrgListClear();
 
 //special
-global.arrayJunkSpcList      = 0;//deactivated
-
+ScrArrayJunkSpcListClear();
 
 //huge
-global.arrayJunkHgeList      = 0;//deactivated
-
+ScrArrayJunkHgeListClear();
 
 //pod
-global.arrayJunkPodList      = 0;//deactivated
-
+ScrArrayJunkPodListClear();
 
 //capsule
-global.arrayJunkCapList      = 0;//deactivated
+ScrArrayJunkCapListClear();

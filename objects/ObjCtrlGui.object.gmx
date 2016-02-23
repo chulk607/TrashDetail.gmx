@@ -26,13 +26,23 @@
           <argument>
             <kind>1</kind>
             <string>///draw score &amp; time remaining
+
+
+//set font &amp; color
 draw_set_font(FntDefault);
 draw_set_color(c_red);
 draw_set_halign(fa_left);
-draw_text(20, 20, "Score");
-draw_text(130, 20, score);
-draw_text(20, 40, "Time");
-draw_text(130, 40, (ObjCtrlGlobal.alarm[0]/room_speed));
+
+//draw score
+draw_text(20, 20, "Score: " + string(score));
+
+//set time variables, adding a leading 0 if single digit
+guiStageTimeHours = string_repeat("0", 2 -string_length(string(ObjCtrlGlobal.stageTimeHours)))+string(ObjCtrlGlobal.stageTimeHours);
+guiStageTimeMinutes = string_repeat("0", 2 -string_length(string(ObjCtrlGlobal.stageTimeMinutes)))+string(ObjCtrlGlobal.stageTimeMinutes);
+guiStageTimeSeconds = string_repeat("0", 2 -string_length(string(ObjCtrlGlobal.stageTimeSeconds)))+string(ObjCtrlGlobal.stageTimeSeconds);
+
+//draw time remaining
+draw_text(20, 40, "Time: " + guiStageTimeHours + ":" + guiStageTimeMinutes + ":" + guiStageTimeSeconds);
 </string>
           </argument>
         </arguments>

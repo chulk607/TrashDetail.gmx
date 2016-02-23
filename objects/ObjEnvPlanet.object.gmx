@@ -85,11 +85,44 @@ isReducing = true;
 //move in line with mass
 y += (global.planetMass - y) * csEnvPlanetDeceleration;
 
-
 //mass reduction
-if (global.planetMass &lt; csEnvPlanetMassMin) &amp;&amp; (isReducing = true)
+if (global.planetMass &lt; csEnvPlanetMassMin) &amp;&amp; (isReducing == true)
 {
     global.planetMass += csEnvPlanetReductionRate;
+}
+
+//keep within bounds
+if (global.planetMass &lt; 0)
+{
+    global.planetMass = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>ObjEnvPlanet</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///lose conditions
+
+
+//check mass, if at limit, activate loss script
+if (global.planetMass &lt;= 0) &amp;&amp; (global.isStagePlaying == true)
+{
+    ScrCtrlGlobalStageEnd(1);
 }
 </string>
           </argument>

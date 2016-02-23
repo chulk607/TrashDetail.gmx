@@ -1,3 +1,4 @@
+#define ScrArrayJunkMed
 ///init array : junk (medium)
 
 
@@ -17,10 +18,24 @@ global.arrayJunkMed[i,0]   = name
 global.arrayJunkMed[0,8]   = 1;
 global.arrayJunkMed[0,7]   = 1;
 global.arrayJunkMed[0,6]   = 0;
-global.arrayJunkMed[0,5]   = SndTest;
-global.arrayJunkMed[0,4]   = SndTest;
+global.arrayJunkMed[0,5]   = SndJunkImpact000;
+global.arrayJunkMed[0,4]   = SndJunkDestruction000;
 global.arrayJunkMed[0,3]   = 25;
 global.arrayJunkMed[0,2]   = 8;
 global.arrayJunkMed[0,1]   = SprJunkMedPlaceholder;
 global.arrayJunkMed[0,0]   = "Placeholder Med 001";
 //tags: 
+
+#define ScrArrayJunkMedListAdd
+///ScrArrayJunkMedListAdd(value to add)
+
+
+//add an item to the end of junk medium list array
+global.arrayJunkMedList[array_length_1d(global.arrayJunkMedList)] = argument0;
+
+#define ScrArrayJunkMedListClear
+///ScrArrayJunkMedListClear
+
+
+//clears contents of junk medium list array
+global.arrayJunkMedList = 0;

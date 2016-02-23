@@ -1,3 +1,4 @@
+#define ScrArrayJunkSml
 ///init array : junk (small)
 
 
@@ -11,18 +12,32 @@ global.arrayJunkSml[i,0]   = name;
 //tags: tags to help find related items & compile lists
 */
 
-global.arrayJunkSml[1,5]   = SndTest;
-global.arrayJunkSml[1,4]   = SndTest;
+global.arrayJunkSml[1,5]   = SndJunkImpact001;
+global.arrayJunkSml[1,4]   = SndJunkDestruction000;
 global.arrayJunkSml[1,3]   = 10;
 global.arrayJunkSml[1,2]   = 5;
-global.arrayJunkSml[1,1]   = SprJunkSmlPlaceholder;
+global.arrayJunkSml[1,1]   = SprJunkSmlPlaceholder001;
 global.arrayJunkSml[1,0]   = "Placeholder Sml 002";
-//tags: 
+//tags: test
 
-global.arrayJunkSml[0,5]   = SndTest;
-global.arrayJunkSml[0,4]   = SndTest;
+global.arrayJunkSml[0,5]   = SndJunkImpact000;
+global.arrayJunkSml[0,4]   = SndJunkDestruction000;
 global.arrayJunkSml[0,3]   = 10;
 global.arrayJunkSml[0,2]   = 5;
-global.arrayJunkSml[0,1]   = SprJunkSmlPlaceholder;
+global.arrayJunkSml[0,1]   = SprJunkSmlPlaceholder000;
 global.arrayJunkSml[0,0]   = "Placeholder Sml 001";
-//tags: 
+//tags: test
+
+#define ScrArrayJunkSmlListAdd
+///ScrArrayJunkSmlListAdd(value to add)
+
+
+//add an item to the end of junk small list array
+global.arrayJunkSmlList[array_length_1d(global.arrayJunkSmlList)] = argument0;
+
+#define ScrArrayJunkSmlListClear
+///ScrArrayJunkSmlListClear
+
+
+//clears contents of junk small list array
+global.arrayJunkSmlList = 0;

@@ -19,7 +19,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///create controllers for level / stage
+            <string>///create controllers for stage
 instance_create(0, 0, ObjCtrlComms);
 instance_create(0, 0, ObjCtrlDebug);
 instance_create(0, 0, ObjCtrlGui);
@@ -43,8 +43,8 @@ instance_create(0, 0, ObjCtrlGui);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///set stage timer
-ObjCtrlGlobal.alarm[0] = csCtrlStageTimeNormal;
+            <string>///set stage time
+ScrCtrlGlobalStageSetTime(0,0,10);
 </string>
           </argument>
         </arguments>
@@ -70,7 +70,7 @@ ObjCtrlGlobal.alarm[0] = csCtrlStageTimeNormal;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//init new junk gen controller
+            <string>///init new junk gen controller
 ScrCtrlJunkGenInit(ScrArrayJunkListTest);
 </string>
           </argument>

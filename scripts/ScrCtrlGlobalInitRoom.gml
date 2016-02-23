@@ -1,6 +1,26 @@
 ///ScrCtrlGlobalInitRoom(timeline)
 
 
+//randomize
+randomize();
+
+//gui
+display_set_gui_size(room_width, room_height);
+draw_set_font(FntDefault);
+draw_set_circle_precision(64);
+
+//sound
+audio_channel_num(256);
+
+//global vars
+globalvar planetMass, planetTemperature, planetPollution, commsMsgPriority;
+
+global.planetMass = csEnvPlanetMassMin;
+global.planetTemperature = csEnvPlanetTemperatureMin;
+global.planetPollution = 0;
+global.commsMsgPriority = 0;
+global.isStagePlaying = true;
+
 //init junk list arrays
 global.arrayJunkCapList = 0;
 global.arrayJunkPodList = 0;
@@ -20,6 +40,7 @@ ScrArrayJunkMed();
 ScrArrayJunkSml();
 ScrArrayJunkCmn();
 ScrArrayExpl();
+ScrArrayCommsMsgNormal();
 
 //init timeline
 newCtrlTimelineHandler = instance_create(0, 0, ObjCtrlTimelineHandler);

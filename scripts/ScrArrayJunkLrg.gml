@@ -1,3 +1,4 @@
+#define ScrArrayJunkLrg
 ///init array : junk (large)
 
 
@@ -15,10 +16,25 @@ global.arrayJunkLrg[i,0]   = name
 
 global.arrayJunkLrg[0,7]   = 0;
 global.arrayJunkLrg[0,6]   = 0;
-global.arrayJunkLrg[0,5]   = SndTest;
-global.arrayJunkLrg[0,4]   = SndTest;
+global.arrayJunkLrg[0,5]   = SndJunkImpact000;
+global.arrayJunkLrg[0,4]   = SndJunkDestruction000;
 global.arrayJunkLrg[0,3]   = 100;
 global.arrayJunkLrg[0,2]   = 12;
 global.arrayJunkLrg[0,1]   = SprJunkLrgPlaceholder;
 global.arrayJunkLrg[0,0]   = "Placeholder Lrg 001";
 //tags: 
+
+
+#define ScrArrayJunkLrgListAdd
+///ScrArrayJunkLrgListAdd(value to add)
+
+
+//add an item to the end of junk large list array
+global.arrayJunkLrgList[array_length_1d(global.arrayJunkLrgList)] = argument0;
+
+#define ScrArrayJunkLrgListClear
+///ScrArrayJunkLrgListClear
+
+
+//clears contents of junk large list array
+global.arrayJunkLrgList = 0;

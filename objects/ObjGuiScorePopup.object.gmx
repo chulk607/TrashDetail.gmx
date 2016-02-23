@@ -86,6 +86,10 @@ for (var i = (array_height_2d(global.arrayScore) - 1); i &gt; -1; i--)
     {
         scoreFont = global.arrayScore[i,1];
         scoreColor = global.arrayScore[i,2];
+
+        //play score sound
+        audio_play_sound(global.arrayScore[i,3], 0, false);
+
         break;
     }
 }

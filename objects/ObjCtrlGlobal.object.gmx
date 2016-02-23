@@ -25,7 +25,36 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//this will now tick down
+            <string>///increment stage time &amp; win conditions
+
+
+//subtract 1 second
+stageTimeSeconds -= 1;
+
+//update hours, minutes &amp; seconds
+if (stageTimeSeconds &lt; 0)
+{
+    stageTimeSeconds = 59;
+    stageTimeMinutes -= 1;
+}
+   
+if (stageTimeMinutes &lt; 0)
+{
+    stageTimeMinutes = 59;
+    stageTimeHours -= 1;
+}
+
+//win
+if (stageTimeSeconds == 0 &amp;&amp; stageTimeMinutes == 0 &amp;&amp; stageTimeHours == 0) &amp;&amp; (global.isStagePlaying == true)
+{
+    ScrCtrlGlobalStageEnd(0);
+}
+
+//reset alarm to 1 second
+else
+{
+    alarm[0] = room_speed;
+}
 </string>
           </argument>
         </arguments>
@@ -78,84 +107,6 @@
       </action>
     </event>
     <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>ScrArrayCommsMsgNormal</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///init
-
-
-//randomize
-randomize();
-
-//gui
-display_set_gui_size(room_width, room_height);
-draw_set_font(FntDefault);
-draw_set_circle_precision(64);
-
-//global vars
-globalvar planetMass, planetTemperature, planetPollution, commsMsgPriority;
-
-global.planetMass = csEnvPlanetMassMin;
-global.planetTemperature = csEnvPlanetTemperatureMin;
-global.planetPollution = 0;
-global.commsMsgPriority = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
       <action>
         <libid>1</libid>
         <id>601</id>

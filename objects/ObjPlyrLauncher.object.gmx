@@ -107,6 +107,9 @@ if (mouse_y &lt; y - 1)
     else
     {
         instance_create(x, y, ObjProjPlyrMissile);
+        
+        //play firing sound
+        audio_play_sound(SndProjPlyrMissileFire000, 0, false);
     }
 }
 </string>
